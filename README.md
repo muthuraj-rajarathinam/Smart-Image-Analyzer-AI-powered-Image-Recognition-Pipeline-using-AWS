@@ -110,6 +110,22 @@ Detected Labels : "Dog", "Pet", "Animal", "Grass", "Canine"
   * `AmazonRekognitionFullAccess`
   * `AmazonDynamoDBFullAccess`
   * `CloudWatchLogsFullAccess`
+add inline policy :
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "AllowCloudWatchLogs",
+			"Effect": "Allow",
+			"Action": [
+				"logs:CreateLogGroup",
+				"logs:CreateLogStream",
+				"logs:PutLogEvents"
+			],
+			"Resource": "*"
+		}
+	]
+}
 
 Attach this role to your Lambda functions.
 
